@@ -1,10 +1,8 @@
-Simple script to backup small mysql databases and keep a version
+Simple script to backup small mysql databases and keep a count of versions
 
-* Have only tested script with a 15MB database (works fine) *
-
-Idea is to have a cron job running the backup.php script whenever you set it to and
-according to how many backups you wish to keep it will delete the old backup and create a new one.
+* Have only tested script with a 15MB database *
 
 The highest folder number is the latest backup, the lowest is the oldest.
 
+Backup Count: is the ammount of backups you want to keep.
 
