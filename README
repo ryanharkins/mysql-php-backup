@@ -1,8 +1,30 @@
-Simple script to backup small mysql databases and keep a count of versions
+Simple script to backup small mysql databases and keep a number of older backups until the backup count is reached and then they are deleted and replaced.
 
-* Have only tested script with a 15MB database *
+* Only tested with a 15MB database and it works quite well, haven't tried bigger databases *
 
 The highest folder number is the latest backup, the lowest is the oldest.
 
 Backup Count: is the ammount of backups you want to keep.
+Path: is where the backups will be stored.
+
+ex: if the backup count is set to 3, you can have 3 copies stored.
+
+Backup 1: 15/05/2011 (date of backup)
+Backup 2: 16/05/2011
+Backup 3: 17/05/2011
+
+
+When another backup is run:
+
+Backup 1: 15/05/2011 <-- will be deleted
+
+All the other backups are moved one step backwards:
+
+Backup 1: 16/05/2011 
+Backup 2: 17/05/2011 
+Backup 3: 18/05/2011 <-- this will always be the latest backup
+
+
+** The backup folder is renamed to {name of folder}.locked to overcome concurrent requests to the script messing up the file structure.
+If there are concurrent the script will fulfill the first request and the other one will exit out.
 
