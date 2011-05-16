@@ -50,7 +50,7 @@ if ($handle = opendir(LOCKED_PATH)) {
     $files = array();
 
     while (false !== ($file = readdir($handle))) {
-        if ($file != '..' && $file != '.' && is_numeric($file))
+        if (is_numeric($file))
             $files[] = $file;
     }
 
